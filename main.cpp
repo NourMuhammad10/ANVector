@@ -20,7 +20,13 @@ int main(){
 //    for(int i = 0; i < vec.size();i++){
 //        cout<<vec[i]<<" ";
 //    } //How insert works on regular vector
-if(obj == obj3){
-    cout<<"Equal"<<endl;
-}
+	if(obj == obj3){
+	    cout<<"Equal"<<endl;
+	}
+
+	ANVector<int> obj4(arr, 5);
+	ANVector<int> obj5(7);
+	obj5=obj4;
+	obj5=move(obj4);
+	obj5=ANVector<int>(arr,5);
 }

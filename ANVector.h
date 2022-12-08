@@ -21,8 +21,29 @@ public:
     ANVector(T *arr, int n);
     ANVector(const ANVector<T>& other);
     ~ANVector();
-    ANVector& operator=(const ANVector<T> &Vector);
-    ANVector& operator=(const ANVector<T> &&Vector);
+    ANVector& operator=(const ANVector<T> &Vector){
+	    cout<<"copy assignment"<<endl;
+	    capacity = Vector.capacity;
+	    size = Vector.size;
+	    data = new T[Vector.capacity];
+	    for (int i = 0; i < Vector.Size(); ++i) {
+		    data[i] = Vector.data[i];
+	    }
+		return *this;
+	}
+    ANVector& operator=( ANVector<T> &&Vector){
+	    cout<<"move assignment"<<endl;
+	    capacity = Vector.capacity;
+	    size = Vector.size;
+	    data = new T[Vector.capacity];
+	    for (int i = 0; i < Vector.Size(); ++i) {
+		    data[i] = Vector.data[i];
+	    }
+		Vector.data= nullptr;
+		Vector.size=0;
+		Vector.capacity=0;
+	    return *this;
+	}
     //Access operations
     T& operator[] (int index);
     //Modifying operations

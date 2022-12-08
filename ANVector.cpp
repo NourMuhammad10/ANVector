@@ -107,3 +107,23 @@ template<class T>
 int ANVector<T>::Capacity() const {
     return capacity;
 }
+//template<class T>
+//ANVector & ANVector<T>:: operator=(const ANVector<T> &Vector){
+//
+//}
+//template<class T>
+//ANVector & ANVector<T>::operator=(const ANVector<T> &&Vector){
+//
+//}
+template<class T>
+T ANVector<T>::pop_back(){
+
+}
+template<class T>
+bool ANVector<T>::operator <(const ANVector<T> &other){
+	return true;
+}
+template<class T>
+int ANVector<T>::resize(){
+
+}
