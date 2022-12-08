@@ -37,30 +37,32 @@ template<class T>
 int ANVector<T>::Size() const {
 	return size;
 }
-template<class T>
-T &ANVector<T>::operator[](int index) {
+template<class d>
+d &ANVector<d>::operator[](int index) {
 	try {
-		if (index < 0 || index >= this->Size()) {
-			throw (-1);
+		if (index < 0 || index >= size) {
+			throw(-1);
 		}
 		return data[index];
 	}
 	catch (int e){
 		cout<<"Index out of range"<<endl;
+		exit(-1);
 	}
 }
 
 template<class T>
 ostream &operator<<(ostream &out, ANVector<T> other) {
-	for(int i = 0; i < other.size();i++){
+	for(int i = 0; i < other.size;i++){
 		out<<other[i]<<" ";
 	}
 	out<<endl;
 	return out;
 }
+
 template<class T>
 bool ANVector<T>::empty() {
-	if(size = 0) {
+	if(size == 0) {
 		return true;
 	}else{
 		return false;
@@ -94,10 +96,7 @@ T ANVector<T>::pop_back(){
 	T lastElement=data[size];
 	delete[] data;
 	//copying newData in data
-	data = new T [capacity];
-	for(int i=0;i<size;i++){
-		newData[i]=data[i];
-	}
+	data =newData;
 	return lastElement;
 }
 template<class T>

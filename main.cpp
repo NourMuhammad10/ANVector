@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 	int arr[] = {1, 2, 3, 4, 5};
 	ANVector<int> obj(arr, 5);
-//    cout<<obj; //complete operator of cout
+	cout<<obj; //complete operator of cout
 	ANVector<int> obj2(7);
 	cout<<obj[1]<<endl;
 	cout<<obj2.empty()<<endl;
@@ -47,11 +47,13 @@ int main(){
 	}else cout<<"false\n";
 
 	ANVector<int> obj4(arr, 5);
-
+	for(int i=0;i<obj4.Size();i++){
+		cout<<obj4[i]<<' ';
+	}cout<<'\n';
 	obj4.pop_back();
 	obj4.pop_back();
 	for(int i=0;i<obj4.Size();i++){
-		cout<<obj[i]<<' ';
+		cout<<obj4[i]<<' ';
 	}cout<<'\n';
 
 	ANVector<int> obj5(7);
@@ -59,6 +61,6 @@ int main(){
 	obj5=move(obj4);
 	obj5=ANVector<int>(arr,5);
 
-	cout<<obj[6]; //Testing access operator
+	cout<<obj[7]; //Testing access operator
 
 }

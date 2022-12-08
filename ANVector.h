@@ -37,7 +37,7 @@ public:
 	int Capacity() const;
 	int resize();
 	bool empty();
-	friend ostream& operator << (ostream& out, ANVector<T> other);
+	friend ostream& operator << <T> (ostream& out, ANVector<T> other);
 
 };
 
