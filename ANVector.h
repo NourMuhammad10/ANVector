@@ -22,16 +22,16 @@ public:
     ANVector(T *arr, int n);
     ANVector(const ANVector<T>& other);
     ~ANVector();
-	ANVector &operator=(const ANVector& Vector);
-	ANVector &operator=(ANVector&& Vector);
+    ANVector<T>& operator=(const ANVector<T> &Vector);
+    ANVector<T>& operator=( ANVector<T> &&Vector);
     //Access operations
     T& operator[] (int index);
     //Modifying operations
-    int push_back(T element);
+    void push_back(T element);
     T pop_back();
     void clear();
     //Comparison operations
-    bool operator ==(const ANVector<T> &other);
+    bool operator == (const ANVector<T> &other);
     bool operator <(const ANVector<T> &other);
     //Capacity operations
     int Size() const;
@@ -39,8 +39,7 @@ public:
     int resize();
     bool empty();
     friend ostream& operator << (ostream& out, ANVector<T> other);
-
-};
+    };
 
 
 #endif //ANVECTOR__ANVECTOR_H
