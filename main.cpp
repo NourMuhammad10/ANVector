@@ -1,5 +1,4 @@
-#include"ANVector.h"
-#include<ANVector.cpp>
+#include"ANVector.cpp"
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -29,4 +28,6 @@ int main(){
 	obj5=obj4;
 	obj5=move(obj4);
 	obj5=ANVector<int>(arr,5);
+
+
 }

@@ -22,22 +22,28 @@ public:
     ANVector(const ANVector<T>& other);
     ~ANVector();
     ANVector& operator=(const ANVector<T> &Vector){
-	    cout<<"copy assignment"<<endl;
-	    capacity = Vector.capacity;
-	    size = Vector.size;
-	    data = new T[Vector.capacity];
-	    for (int i = 0; i < Vector.Size(); ++i) {
-		    data[i] = Vector.data[i];
+	    if(this != &Vector) {
+		    delete[] data;
+		    cout << "copy assignment" << endl;
+		    capacity = Vector.capacity;
+		    size = Vector.size;
+		    data = new T[Vector.capacity];
+		    for (int i = 0; i < Vector.Size(); ++i) {
+			    data[i] = Vector.data[i];
+		    }
 	    }
 		return *this;
 	}
     ANVector& operator=( ANVector<T> &&Vector){
-	    cout<<"move assignment"<<endl;
-	    capacity = Vector.capacity;
-	    size = Vector.size;
-	    data = new T[Vector.capacity];
-	    for (int i = 0; i < Vector.Size(); ++i) {
-		    data[i] = Vector.data[i];
+	    if(this != &Vector) {
+		    delete[] data;
+		    cout << "move assignment" << endl;
+		    capacity = Vector.capacity;
+		    size = Vector.size;
+		    data = new T[Vector.capacity];
+		    for (int i = 0; i < Vector.Size(); ++i) {
+			    data[i] = Vector.data[i];
+		    }
 	    }
 		Vector.data= nullptr;
 		Vector.size=0;
@@ -59,7 +65,9 @@ public:
     int resize();
     bool empty();
     friend ostream& operator << (ostream& out, ANVector<T> other);
-    };
+
+
+};
 
 
 #endif //ANVECTOR__ANVECTOR_H
