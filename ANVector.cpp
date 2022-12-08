@@ -42,12 +42,15 @@ template<class T>
 T& ANVector<T>::operator[](int index){
     try {
         if (index < 0 || index >= this->Size()) {
-            throw out_of_range("Bad index passed");
+            throw(-1);
+//            throw out_of_range("Bad index passed");
         }
         return data[index];
     }
-    catch(const out_of_range&){
-        cout<<"Range error"<<endl;
+
+    //    catch(const out_of_range&)
+       catch (int e){
+        cout<<"Index out of range"<<endl;
     }
 }
 
