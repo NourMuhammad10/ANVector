@@ -12,6 +12,7 @@ ostream& operator << (ostream& out, ANVector<T> other);
 
 template<class T>
 class ANVector {
+private:
     T* data;
     int capacity;
     int size;
