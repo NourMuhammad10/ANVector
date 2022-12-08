@@ -37,15 +37,19 @@ template<class T>
 int ANVector<T>::Size() const {
     return size;
 }
+
 template<class T>
-T &ANVector<T>::operator[](int index) {
-    if(index < 0 || index>= size){
-        cout<<"An error has occurred, index out of range"<<endl;
-        exit(-1);
+T& ANVector<T>::operator[](int index){
+    try {
+        if (index < 0 || index >= this->Size()) {
+            throw out_of_range("Bad index passed");
+        }
+        return data[index];
     }
-    return data[index];
+    catch(const out_of_range&){
+        cout<<"Range error"<<endl;
+    }
 }
-//
 
 template<class T>
 ostream &operator<<(ostream &out, ANVector<T> other) {

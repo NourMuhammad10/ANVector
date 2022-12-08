@@ -9,6 +9,7 @@ int main(){
 //    cout<<obj; //complete operator of cout
     ANVector<int> obj2(7);
     cout<<obj[1]<<endl;
+    cout<<obj[6]; //Testing access operator
     cout<<obj2.empty()<<endl;
     obj.push_back(6);
     cout<<obj.Size()<<endl;
