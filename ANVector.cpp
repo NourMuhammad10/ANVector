@@ -45,7 +45,6 @@ T &ANVector<T>::operator[](int index) {
     }
     return data[index];
 }
-//
 
 template<class T>
 ostream &operator<<(ostream &out, ANVector<T> other) {
@@ -65,13 +64,13 @@ bool ANVector<T>::empty() {
 }
 
 template<class T>
-void ANVector<T>::push_back(T element) {
+int ANVector<T>::push_back(T element) {
     if(size < capacity){
     data[size++] = element;
     }
     else{
         capacity *= 2;
-        T* newData = new T [capacity*2];
+        T* newData = new T [capacity];
         for(int i =0; i<size;i++){
             newData[i] = data[i];
         }
@@ -79,12 +78,30 @@ void ANVector<T>::push_back(T element) {
         delete[] data;
         data = newData;
     }
+	return size;
 }
-
+template<class T>
+T ANVector<T>::pop_back(){
+	T* newData = new T [capacity];
+	size--;
+	for(int i=0;i<size;i++){
+		newData[i]=data[i];
+	}
+	T lastElement=data[size];
+	delete[] data;
+	//copying newData in data
+	data = new T [capacity];
+	for(int i=0;i<size;i++){
+		newData[i]=data[i];
+	}
+	return lastElement;
+}
 template<class T>
 void ANVector<T>::clear() {
-data = nullptr;
-size = 0;
+	delete []data;
+	size = 0;
+	capacity=5;
+	data=new T [capacity];
 }
 
 template<class T>
@@ -96,7 +113,6 @@ bool ANVector<T>::operator==(const ANVector<T> &other) {
         for(int i = 0; i<other.Size();i++){
             if(data[i]!= other.data[i]){
                 return false;
-                break;
             }
         }
     }
@@ -140,15 +156,40 @@ ANVector<T> & ANVector<T>::operator=( ANVector<T> &&Vector){
 	Vector.capacity=0;
 	return *this;
 }
-template<class T>
-T ANVector<T>::pop_back(){
 
-}
 template<class T>
 bool ANVector<T>::operator <(const ANVector<T> &other){
-	return true;
+	if(*this ==other)return false;
+	if(size<other.size){
+		for(int i=0;i<size;i++){
+			if(data[i]>other.data[i])return false;
+		}
+		return true;
+	}
+	else if(other.size<size){
+		return false;
+	}
+	else{
+		for(int i=0;i<other.size;i++){
+			if(data[i]>other.data[i])return false;
+		}
+		return true;
+	}
 }
 template<class T>
 int ANVector<T>::resize(){
-
+	capacity *= 2;
+	T* newData = new T [capacity];
+	for(int i =0; i<size;i++){
+		newData[i] = data[i];
+	}
+	for(int i=size;i<capacity;i++){
+		newData[i]=0;
+	}
+	delete[] data;
+	data = new T[capacity];
+	for(int i=0;i<capacity;i++){
+		data[i]=newData[i];
+	}
+	return capacity;
 }

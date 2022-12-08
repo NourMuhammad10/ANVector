@@ -23,11 +23,40 @@ int main(){
 	    cout<<"Equal"<<endl;
 	}
 
+	if(obj < obj3){//false
+		cout<<"true"<<endl;
+	}else cout<<"false\n";    //because they are equal
+
+	obj.push_back(5);
+	if(obj < obj3){//false
+		cout<<"true"<<endl;
+	}else cout<<"false\n";
+
+	if(obj3 < obj){//true
+		cout<<"true"<<endl;
+	}else cout<<"false\n";
+
+	obj3.push_back(6);
+
+	if(obj < obj3){//true
+		cout<<"true"<<endl;
+	}else cout<<"false\n";
+
+	if(obj3 < obj){//false
+		cout<<"true"<<endl;
+	}else cout<<"false\n";
+
 	ANVector<int> obj4(arr, 5);
+
+	obj4.pop_back();
+	obj4.pop_back();
+	for(int i=0;i<obj4.Size();i++){
+		cout<<obj[i]<<' ';
+	}cout<<'\n';
+
 	ANVector<int> obj5(7);
 	obj5=obj4;
 	obj5=move(obj4);
 	obj5=ANVector<int>(arr,5);
-
 
 }

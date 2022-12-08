@@ -26,7 +26,7 @@ public:
     //Access operations
     T& operator[] (int index);
     //Modifying operations
-    void push_back(T element);
+    int push_back(T element);
     T pop_back();
     void clear();
     //Comparison operations
