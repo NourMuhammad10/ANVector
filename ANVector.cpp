@@ -107,14 +107,31 @@ template<class T>
 int ANVector<T>::Capacity() const {
     return capacity;
 }
-//template<class T>
-//ANVector & ANVector<T>:: operator=(const ANVector<T> &Vector){
-//
-//}
-//template<class T>
-//ANVector & ANVector<T>::operator=(const ANVector<T> &&Vector){
-//
-//}
+template<class T>
+ANVector<T>& ANVector<T>:: operator=(const ANVector<T> &Vector){
+    cout<<"copy assignment"<<endl;
+    capacity = Vector.capacity;
+    size = Vector.size;
+    data = new T[Vector.capacity];
+    for (int i = 0; i < Vector.Size(); ++i) {
+        data[i] = Vector.data[i];
+    }
+    return *this;
+}
+template<class T>
+ANVector<T>& ANVector<T>::operator=(ANVector<T> &&Vector){
+    cout<<"move assignment"<<endl;
+    capacity = Vector.capacity;
+    size = Vector.size;
+    data = new T[Vector.capacity];
+    for (int i = 0; i < Vector.Size(); ++i) {
+        data[i] = Vector.data[i];
+    }
+    Vector.data= nullptr;
+    Vector.size=0;
+    Vector.capacity=0;
+    return *this;
+}
 template<class T>
 T ANVector<T>::pop_back(){
 

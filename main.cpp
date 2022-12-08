@@ -25,8 +25,11 @@ int main(){
 	}
 
 	ANVector<int> obj4(arr, 5);
+    cout<<obj4[0]<<endl;
 	ANVector<int> obj5(7);
-	obj5=obj4;
+//	obj5=obj4;
+//    cout<<obj5[0]; //Testing copy assignment
 	obj5=move(obj4);
-	obj5=ANVector<int>(arr,5);
+    cout<<obj5[0]<<endl; //testing move assignment
+//	obj5=ANVector<int>(arr,5);
 }
