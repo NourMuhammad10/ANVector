@@ -30,7 +30,10 @@ public:
 	int push_back(T element);
 	T pop_back();
 	void clear();
-	//Comparison operations
+    void erase(iterator iter);
+    void erase(iterator iter1, iterator iter2);
+    void insert(iterator iter, T element);
+    //Comparison operations
 	bool operator ==(const ANVector<T> &other);
 	bool operator <(const ANVector<T> &other);
 	//Capacity operations
@@ -38,11 +41,11 @@ public:
 	int Capacity() const;
 	int resize();
 	bool empty();
+    //Iterators
+    iterator begin();
+    iterator end();
+    //Friend functions
 	friend ostream& operator << <T> (ostream& out, ANVector<T>& other);
-	iterator begin();
-	iterator end();
-	void erase(iterator iter);
-	void erase(iterator iter1, iterator iter2);
 };
 
 

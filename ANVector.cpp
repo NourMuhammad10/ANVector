@@ -251,3 +251,30 @@ void ANVector<T>::erase(iterator iter1, iterator iter2){
 		exit(EXIT_FAILURE);
 	}
 }
+
+template<class T>
+void ANVector<T>::insert(ANVector::iterator iter, T element) {
+    try {
+        if(iter < data || iter - data >= size){
+            throw(-1);
+        }
+        if (capacity == size) {
+            capacity *= 2;
+        }
+        size++;
+        T *newData = new T[capacity];
+        for (int i = 0; i < iter - data; ++i) {
+            newData[i] = data[i];
+        }
+        newData[iter - data] = element;
+        for (int i = iter - data; i < size; i++) {
+            newData[i + 1] = data[i];
+        }
+        delete[] data;
+        data = newData;
+    }
+    catch(int e){
+        cout<<"\nERROR:iterator out of range\n";
+        exit(EXIT_FAILURE);
+    }
+}

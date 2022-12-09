@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 	int arr[] = {1, 2, 3, 4, 5};
 	ANVector<int> obj(arr, 5);
-	cout<<obj; //complete operator of cout
+	cout<<obj;
 	ANVector<int> obj2(7);
 	cout<<obj[1]<<endl;
 	cout<<obj2.empty()<<endl;
@@ -71,4 +71,5 @@ int main(){
 
 	asma.erase(asma.begin(),asma.begin()+3);
 	cout<<asma;
+
 }
