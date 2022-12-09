@@ -66,7 +66,7 @@ int main(){
 	int a2[]={11,12,13,14,15,16};
 	ANVector<int> asmaa(a1,6);
 	ANVector<int> asma(a2,6);
-	asmaa.erase(asmaa.begin()+1);
+	asmaa.erase(asmaa.begin()+2);
 	cout<<asmaa<<endl;
 
 	asma.erase(asma.begin(),asma.begin()+3);

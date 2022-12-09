@@ -47,7 +47,7 @@ d &ANVector<d>::operator[](int index) {
 		return data[index];
 	}
 	catch (int e){
-		cout<<"Index out of range"<<endl;
+		cout<<"/nERROR:Index out of range"<<endl;
 		exit(-1);
 	}
 }
@@ -207,27 +207,47 @@ typename ANVector<T>::iterator ANVector<T>::end(){
 }
 template<class T>
 void ANVector<T>::erase(iterator iter){
-	T *newData=new T[capacity];
-	for(int i=0;i<iter-data;i++){
-		newData[i]=data[i];
+	try {
+		if(iter-data>=size||iter-data<0) {
+			throw(-1);
+		}
+		T *newData = new T[capacity];
+		for (int i = 0; i < iter - data; i++) {
+			newData[i] = data[i];
+		}
+		for (int i = iter - data + 1; i < size; i++) {
+			newData[i - 1] = data[i];
+		}
+		size--;
+		delete[] data;
+		data = newData;
+		return;
 	}
-	for(int i=iter-data+1;i<size;i++){
-		newData[i-1]=data[i];
+	catch(int e){
+		cout<<"\nERROR:iterator out of range\n";
+		exit(EXIT_FAILURE);
 	}
-	size--;
-	delete[] data;
-	data=newData;
 }
 template<class T>
 void ANVector<T>::erase(iterator iter1, iterator iter2){
-	T *newData=new T[capacity];
-	for(int i=0;i<iter1-data;i++){
-		newData[i]=data[i];
+	try {
+		if (iter1 - data >= size||iter2 - data >= size||iter1 - data<0||iter2 - data<0) {
+			throw(-1);
+		}
+		T *newData = new T[capacity];
+		for (int i = 0; i < iter1 - data; i++) {
+			newData[i] = data[i];
+		}
+		for (int i = iter2 - data; i < size; i++) {
+			newData[i - (iter2 - iter1)] = data[i];
+		}
+		size -= (iter2 - iter1);
+		delete[] data;
+		data = newData;
+		return;
 	}
-	for(int i=iter2-data;i<size;i++){
-		newData[i-(iter2-iter1)]=data[i];
+	catch(int e){
+		cout<<"\nERROR:iterator out of range\n";
+		exit(EXIT_FAILURE);
 	}
-	size-=(iter2-iter1);
-	delete[] data;
-	data=newData;
 }
