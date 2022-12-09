@@ -2,6 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 template<class T>
 ANVector<T>::ANVector(int c) : capacity(c), size(0) {
 	data = new T [capacity];
@@ -52,7 +53,7 @@ d &ANVector<d>::operator[](int index) {
 }
 
 template<class T>
-ostream &operator<<(ostream &out, ANVector<T> other) {
+ostream &operator<<(ostream &out, ANVector<T> &other) {
 	for(int i = 0; i < other.size;i++){
 		out<<other[i]<<" ";
 	}
@@ -195,4 +196,38 @@ int ANVector<T>::resize(){
 		data[i]=newData[i];
 	}
 	return capacity;
+}
+template<class T>
+typename ANVector<T>::iterator ANVector<T>::begin(){
+	return data;
+}
+template<class T>
+typename ANVector<T>::iterator ANVector<T>::end(){
+	return data+size;
+}
+template<class T>
+void ANVector<T>::erase(iterator iter){
+	T *newData=new T[capacity];
+	for(int i=0;i<iter-data;i++){
+		newData[i]=data[i];
+	}
+	for(int i=iter-data+1;i<size;i++){
+		newData[i-1]=data[i];
+	}
+	size--;
+	delete[] data;
+	data=newData;
+}
+template<class T>
+void ANVector<T>::erase(iterator iter1, iterator iter2){
+	T *newData=new T[capacity];
+	for(int i=0;i<iter1-data;i++){
+		newData[i]=data[i];
+	}
+	for(int i=iter2-data;i<size;i++){
+		newData[i-(iter2-iter1)]=data[i];
+	}
+	size-=(iter2-iter1);
+	delete[] data;
+	data=newData;
 }

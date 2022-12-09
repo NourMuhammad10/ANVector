@@ -8,7 +8,7 @@ template<class T>
 class ANVector;
 
 template<class T>
-ostream& operator << (ostream& out, ANVector<T> other);
+ostream& operator << (ostream& out, ANVector<T> &other);
 
 template<class T>
 class ANVector {
@@ -16,6 +16,7 @@ class ANVector {
 	int capacity;
 	int size;
 public:
+	using iterator = T*;
 	//Constructors and Big 4
 	explicit ANVector(int c = 5);
 	ANVector(T *arr, int n);
@@ -37,9 +38,15 @@ public:
 	int Capacity() const;
 	int resize();
 	bool empty();
-	friend ostream& operator << <T> (ostream& out, ANVector<T> other);
-
+	friend ostream& operator << <T> (ostream& out, ANVector<T>& other);
+	iterator begin();
+	iterator end();
+	void erase(iterator iter);
+	void erase(iterator iter1, iterator iter2);
 };
+
+
+
 
 
 #endif //ANVECTOR__ANVECTOR_H

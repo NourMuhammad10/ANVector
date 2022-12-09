@@ -61,6 +61,14 @@ int main(){
 	obj5=move(obj4);
 	obj5=ANVector<int>(arr,5);
 
-	cout<<obj[7]; //Testing access operator
+//	cout<<obj[7]; //Testing access operator
+	int a1[]={5,6,7,8,9,10};
+	int a2[]={11,12,13,14,15,16};
+	ANVector<int> asmaa(a1,6);
+	ANVector<int> asma(a2,6);
+	asmaa.erase(asmaa.begin()+1);
+	cout<<asmaa<<endl;
 
+	asma.erase(asma.begin(),asma.begin()+3);
+	cout<<asma;
 }
