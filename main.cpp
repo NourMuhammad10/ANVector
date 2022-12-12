@@ -14,11 +14,6 @@ int main(){
 	cout<<obj[5]<<endl;
 	ANVector<int> obj3(obj);
 	cout<<obj3[3]<<endl;
-//    vector<int> vec = {1,2,4};
-//    vec.insert(vec.begin()+2,3);
-//    for(int i = 0; i < vec.size();i++){
-//        cout<<vec[i]<<" ";
-//    } //How insert works on regular vector
 	if(obj == obj3){
 		cout<<"Equal"<<endl;
 	}
@@ -72,4 +67,14 @@ int main(){
 	asma.erase(asma.begin(),asma.begin()+3);
 	cout<<asma;
 
+    //Testing insert function
+    int nums []= {8,7,8,3,4,5};
+    ANVector<int> numbers(nums , 6);
+    numbers.insert(numbers.end()-2,0);
+    cout<<numbers;
+    vector<int> vecNum ={5,6,7,10};
+    vecNum.insert(vecNum.end()-2, 11);
+    for(int i: vecNum){
+        cout<<i<<" ";
+    }
 }
