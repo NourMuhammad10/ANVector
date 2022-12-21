@@ -1,0 +1,92 @@
+\hypertarget{stdc_09_09_8h_source}{}\doxysection{stdc++.h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// C}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_GLIBCXX\_NO\_ASSERT}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cerrno>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cfloat>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <ciso646>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <clocale>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <csetjmp>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <csignal>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <cstdarg>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#if \_\_cplusplus >= 201103L}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <ccomplex>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <cfenv>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <cinttypes>}}
+\DoxyCodeLine{25 \textcolor{comment}{//\#include <cstdalign>}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <cstdbool>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include <ctgmath>}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include <cwchar>}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include <cwctype>}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// C++}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include <bitset>}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include <functional>}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include <ios>}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include <iosfwd>}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include <istream>}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include <locale>}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include <new>}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#include <numeric>}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#include <set>}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#include <streambuf>}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#include <typeinfo>}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#include <valarray>}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#if \_\_cplusplus >= 201103L}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#include <atomic>}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#include <condition\_variable>}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#include <forward\_list>}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#include <future>}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#include <mutex>}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#include <ratio>}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#include <regex>}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#include <scoped\_allocator>}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#include <system\_error>}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#include <typeindex>}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#include <unordered\_set>}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
