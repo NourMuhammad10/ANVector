@@ -3,10 +3,17 @@
 using namespace std;
 
 int main(){
+    /**
+     * @brief test ANVector class methods
+     *
+     */
 	int arr[] = {1, 2, 3, 4, 5};
 	ANVector<int> obj(arr, 5);
+
 	cout<<obj;
+
 	ANVector<int> obj2(7);
+
 	cout<<obj[1]<<endl;
 	cout<<obj2.empty()<<endl;
 	obj.push_back(6);

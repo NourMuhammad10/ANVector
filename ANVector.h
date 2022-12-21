@@ -10,6 +10,10 @@ class ANVector;
 template<class T>
 ostream& operator << (ostream& out, ANVector<T> &other);
 
+/**
+ * @brief Class to implement a vector
+ *
+ */
 template<class T>
 class ANVector {
 	T* data;

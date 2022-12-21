@@ -2,12 +2,21 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+/**
+ * @brief constructor to initialize the vector with a given capacity and size=0
+ *
+ * @param c the capacity of the vector
+ */
 template<class T>
 ANVector<T>::ANVector(int c) : capacity(c), size(0) {
 	data = new T [capacity];
 }
-
+/**
+ * @brief constructor to copy elements from an array to the vector
+ *
+ * @tparam T* the array to be copied
+ * @param n the size of the array
+ */
 template<class T>
 ANVector<T>::ANVector(T *arr, int n): size(n), capacity(n) {
 	if(n<0){
@@ -19,11 +28,19 @@ ANVector<T>::ANVector(T *arr, int n): size(n), capacity(n) {
 		data[i] = arr[i];
 	}
 }
-
+/**
+ * @brief destructor to free the memory allocated to the vector
+ *
+ */
 template<class T>
 ANVector<T>::~ANVector() {
 	delete[] data;
 }
+/**
+ * @brief Constructor to copy the elements of another vector
+ *
+ * @tparam ANVector<T> the vector to be copied
+ */
 template<class T>
 ANVector<T>::ANVector(const ANVector<T> & other) {
 	cout<<"Copy constructor"<<endl;
@@ -34,10 +51,19 @@ ANVector<T>::ANVector(const ANVector<T> & other) {
 		data[i] = other.data[i];
 	}
 }
+/**
+ * @brief size of the vector
+ *
+ */
 template<class T>
 int ANVector<T>::Size() const {
 	return size;
 }
+/**
+ * @brief return element at a given index
+ *
+ * @param index the index of the element to be returned
+ */
 template<class d>
 d &ANVector<d>::operator[](int index) {
 	try {
@@ -51,7 +77,14 @@ d &ANVector<d>::operator[](int index) {
 		exit(-1);
 	}
 }
-
+/**
+ *@brief print the vector
+ *
+ * @tparam T
+ * @param out
+ * @param other
+ * @return
+ */
 template<class T>
 ostream &operator<<(ostream &out, ANVector<T> &other) {
 	for(int i = 0; i < other.size;i++){
@@ -60,7 +93,10 @@ ostream &operator<<(ostream &out, ANVector<T> &other) {
 	out<<endl;
 	return out;
 }
-
+/**
+ * @brief check if the vector is empty
+ *
+ */
 template<class T>
 bool ANVector<T>::empty() {
 	if(size == 0) {
@@ -69,7 +105,11 @@ bool ANVector<T>::empty() {
 		return false;
 	}
 }
-
+/**
+ * @brief add an element to the end of the vector
+ *
+ * @tparam T the element to be added
+ */
 template<class T>
 int ANVector<T>::push_back(T element) {
 	if(size < capacity){
@@ -87,6 +127,10 @@ int ANVector<T>::push_back(T element) {
 	}
 	return size;
 }
+/**
+ * @brief remove the last element of the vector
+ *
+ */
 template<class T>
 T ANVector<T>::pop_back(){
 	T* newData = new T [capacity];
@@ -100,6 +144,10 @@ T ANVector<T>::pop_back(){
 	data =newData;
 	return lastElement;
 }
+/**
+ * @brief clear the vector
+ *
+ */
 template<class T>
 void ANVector<T>::clear() {
 	delete []data;
@@ -107,7 +155,12 @@ void ANVector<T>::clear() {
 	capacity=5;
 	data=new T [capacity];
 }
-
+/**
+ * @brief  compare two vectors and return true if they are equal
+ * @tparam T
+ * @param other
+ * @return
+ */
 template<class T>
 bool ANVector<T>::operator==(const ANVector<T> &other) {
 	if(size != other.size) {
@@ -122,12 +175,19 @@ bool ANVector<T>::operator==(const ANVector<T> &other) {
 	}
 	return true;
 }
-
+/**
+ * @brief return vector`s capacity
+ *
+ */
 template<class T>
 int ANVector<T>::Capacity() const {
 	return capacity;
 }
-
+/**
+ * @brief copy the elements of another vector to the current vector
+ *
+ * @tparam ANVector<T> the vector to be copied
+ */
 template<class T>
 ANVector<T>& ANVector<T>::operator=(const ANVector<T> &Vector){
 	if(this != &Vector) {
@@ -142,7 +202,11 @@ ANVector<T>& ANVector<T>::operator=(const ANVector<T> &Vector){
 	}
 	return *this;
 }
-
+/**
+ * @brief move another vector to the current vector
+ *
+ * @tparam ANVector<T> the vector to be moved
+ */
 template<class T>
 ANVector<T> & ANVector<T>::operator=( ANVector<T> &&Vector){
 	if(this != &Vector) {
@@ -160,7 +224,12 @@ ANVector<T> & ANVector<T>::operator=( ANVector<T> &&Vector){
 	Vector.capacity=0;
 	return *this;
 }
-
+/**
+ * @brief  compare two vectors and return true if the first is smaller than the second
+ * @tparam T
+ * @param other
+ * @return
+ */
 template<class T>
 bool ANVector<T>::operator <(const ANVector<T> &other){
 	if(*this ==other)return false;
@@ -180,6 +249,10 @@ bool ANVector<T>::operator <(const ANVector<T> &other){
 		return true;
 	}
 }
+/**
+ * @brief resize the vector and add its capacity
+ *
+ */
 template<class T>
 int ANVector<T>::resize(){
 	capacity *= 2;
@@ -197,14 +270,29 @@ int ANVector<T>::resize(){
 	}
 	return capacity;
 }
+/**
+ * @brief function to return the begin of the vector
+ * @tparam T
+ * @return
+ */
 template<class T>
 typename ANVector<T>::iterator ANVector<T>::begin(){
 	return data;
 }
+/**
+ * @brief function to return the end of the vector
+ * @tparam T 
+ * @return
+ */
 template<class T>
 typename ANVector<T>::iterator ANVector<T>::end(){
 	return data+size;
 }
+/**
+ * @brief erase the element at the given position
+ *
+ * @tparam iter
+ */
 template<class T>
 void ANVector<T>::erase(iterator iter){
 	try {
@@ -228,6 +316,11 @@ void ANVector<T>::erase(iterator iter){
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * @brief erase within the given range
+ *
+ * @param iter1,iter1
+ */
 template<class T>
 void ANVector<T>::erase(iterator iter1, iterator iter2){
 	try {
@@ -251,7 +344,11 @@ void ANVector<T>::erase(iterator iter1, iterator iter2){
 		exit(EXIT_FAILURE);
 	}
 }
-
+/**
+ * @brief insert the given element at the given position
+ *
+ * @tparam iter,T
+ */
 template<class T>
 void ANVector<T>::insert(ANVector::iterator iter, T element) {
     try {
